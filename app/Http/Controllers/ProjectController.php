@@ -9,8 +9,8 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $projects = Project::paginate(2);
+        return view('projects.index', ['projects' => $projects]);
     }
 
     public function show(Project $project)

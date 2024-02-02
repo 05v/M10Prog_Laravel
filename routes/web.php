@@ -26,8 +26,10 @@ Route::get('/project/{project}', [\App\Http\Controllers\ProjectController::class
 
 Route::get('/projects/add', [\App\Http\Controllers\ProjectController::class, 'add'])->name('project.add');
 
+Route::delete('/admin/addprojects/{project}', [ProjectAdminController::class, 'destroy'])->name('addprojects.destroy');
+
 Route::prefix('/admin')
     ->middleware(['auth'])
     ->group(function () {
-        Route::resource('projects', ProjectAdminController::class);
+        Route::resource('addprojects', ProjectAdminController::class);
     });
