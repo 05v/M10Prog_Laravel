@@ -19,4 +19,7 @@ Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->n
 
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 
+Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
+
+
 Route::get('/projects/add', [\App\Http\Controllers\ProjectController::class, 'add'])->name('project.add');
