@@ -21,5 +21,6 @@ Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']
 
 Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
 
+Route::get('/project/{project}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('project.show');
 
 Route::get('/projects/add', [\App\Http\Controllers\ProjectController::class, 'add'])->name('project.add');
