@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'index'
 Route::get('/project/{project}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('project.show');
 
 Route::get('/projects/add', [\App\Http\Controllers\ProjectController::class, 'add'])->name('project.add');
+
+Route::prefix('/admin')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::resource('projects', ProjectAdminController::class);
+    });
