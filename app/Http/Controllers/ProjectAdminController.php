@@ -10,9 +10,11 @@ class ProjectAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        return 'This is the admin page for managing projects.';
+        $projects = Project::paginate(2); // Fetch projects with pagination
+        return view('dashboard.projects.index', ['projects' => $projects]);
     }
 
 
