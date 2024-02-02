@@ -31,5 +31,10 @@ Route::delete('/admin/addprojects/{project}', [ProjectAdminController::class, 'd
 Route::prefix('/admin')
     ->middleware(['auth'])
     ->group(function () {
+
+        Route::get('/', function () {
+            return redirect('/admin/addprojects');
+        });
+
         Route::resource('addprojects', ProjectAdminController::class);
     });
